@@ -1,7 +1,19 @@
+import { useEffect, useContext } from 'react'
 import Head from 'next/head'
 import Link from 'next/Link'
+import useFetchList from 'api/useFetchList'
+import { AuthContext } from 'pages/_app'
 
 export default function Home({ children }) {
+	const { data } = useFetchList('account/profiles')
+	const { setActiveProfileId } = useContext(AuthContext)
+	useEffect(
+		() => {
+			if (data) {
+				setActiveProfileId(data[0].id)
+			}
+		}, [data]
+	)
   return (
 	<div>
 		<ul>
@@ -44,6 +56,13 @@ export default function Home({ children }) {
 			<Link href="/profiles">
 				<a>
 					Profiles
+				</a>
+			</Link>
+		</li>
+		<li>
+			<Link href="/create">
+				<a>
+					Create Track
 				</a>
 			</Link>
 		</li>

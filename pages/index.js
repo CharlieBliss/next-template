@@ -1,6 +1,4 @@
 import { useQuery, queryCache } from 'react-query'
-import Head from 'next/head'
-import Link from 'next/Link'
 import apiRequest from 'api/apiRequest'
 
 export default function Home() {
@@ -9,7 +7,6 @@ export default function Home() {
     apiRequest({path: 'tracks/832'}),
     {
       initialData: () => {
-        console.log(queryCache)
         return queryCache.getQueryData('tracks')?.find(data => data.id === 832)
       },
     }

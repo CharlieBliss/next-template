@@ -8,6 +8,7 @@ export const AuthContext = createContext(emptyObj)
 
 const App = ({ Component, pageProps }) => {
 	const [authenticated, setAuthenticated] = useState()
+	const [activeProfileId, setActiveProfileId] = useState()
 	useEffect(
 		() => {
 			const jwt = getCurrentJwtToken()
@@ -18,14 +19,14 @@ const App = ({ Component, pageProps }) => {
 		[]
 	)
 	const context = {
-		authenticated, setAuthenticated
+		authenticated, setAuthenticated, activeProfileId, setActiveProfileId,
 	}
 	return (
-		<Layout>
-			<AuthContext.Provider value={context} >
+		<AuthContext.Provider value={context} >
+			<Layout>
 				<Component {...pageProps} />
-			</AuthContext.Provider>
-		</Layout>
+			</Layout>
+		</AuthContext.Provider>
 	)
 }
 
