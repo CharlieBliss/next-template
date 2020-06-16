@@ -11,6 +11,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@next/bundle-analyzer": "^9.4.4",
+    "apollo-client": "^2.6.10",
     "aws-amplify": "^3.0.16",
     "babel-eslint": "^10.1.0",
     "fastest-validator": "^1.4.2",
