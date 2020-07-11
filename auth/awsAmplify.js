@@ -38,7 +38,9 @@ export const getIdentityId = async () => new Promise((resolve, reject) => {
 	})
 })
 
-
+export default (bucket, key, expiresSeconds = 1200) => (
+	Storage.get(key, { bucket, expires: expiresSeconds })
+)
 
 export const login = async (username, password, setAuth) => {
 	const request = await Auth.signIn(username, password)

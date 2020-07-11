@@ -17,7 +17,7 @@ export default ({
 		...(activeProfileId ? { active_profile_id: activeProfileId } : {}),
 	}
 	const req = await ajax({
-		url: `https://staging.api.quadio.com/${path}/`,
+		url: `https://${dnsOverride || 'staging.api.quadio.com'}/${path}/`,
 		method,
 		body: finalPayload,
 		queryParams: finalParams,

@@ -6,8 +6,7 @@ export default (onSuccess) => useMutation(
 		apiRequest({path: queryKey, method, queryParams, payload, activeProfileId  })()
 	},
 	{
-		onSuccess: (data, ...rest) => {
-			console.log(data, rest)
+		onSuccess: (data) => {
 			if (onSuccess && data) {
 				onSuccess(data)
 			}
