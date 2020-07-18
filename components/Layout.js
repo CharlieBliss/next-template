@@ -1,12 +1,13 @@
 import { useEffect, useContext } from 'react'
 /** @jsx jsx */
 import { jsx, css, Global } from '@emotion/core'
-import Head from 'next/head'
 import Link from 'next/Link'
 import useFetchList from 'api/useFetchList'
 import { AuthContext } from 'pages/_app'
 import { useTheme } from 'emotion-theming'
-
+import ChannelDrawer from 'components/chat/ChannelDrawer'
+import ChatWindow from 'components/chat/ChatWindow'
+import { useChatContext } from 'components/chat/ChatContext'
 
 const navBarStyles = ({ colors }) => css`
 	width: 100%;
@@ -41,6 +42,7 @@ export default function Navigation({ children }) {
 	const { data } = useFetchList('account/profiles')
 	const theme = useTheme()
 	const { setActiveProfileId } = useContext(AuthContext)
+	const { setChatDrawerOpen } = useChatContext()
 	useEffect(
 		() => {
 			if (data) {
@@ -73,6 +75,13 @@ export default function Navigation({ children }) {
 				</Link>
 			</div>
 			<div>
+				<Link href="/following">
+					<a css={navItemStyles(theme)}>
+						Following
+					</a>
+				</Link>
+			</div>
+			<div>
 				<Link href="/communities">
 					<a css={navItemStyles(theme)}>
 						Communities
@@ -100,10 +109,29 @@ export default function Navigation({ children }) {
 					</a>
 				</Link>
 			</div>
+			<div>
+				<div
+					onClick={() => {
+						setChatDrawerOpen(drawer => {
+							if(drawer === 'chat') {
+								return 'notifications'
+							}
+							if(drawer === 'notifications') {
+								return false
+							}
+							return 'chat'
+						})
+					}}
+					css={navItemStyles(theme)}
+				>
+					Chat
+				</div>
+			</div>
 		</div>
 		<div css={contentStyles}>
 			{children}
 		</div>
+		<ChannelDrawer />
 		<Global styles={globalStyles(theme)} />
 	</div>
   )

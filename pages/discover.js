@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core'
 import Link from 'next/Link'
 import { AuthContext } from 'pages/_app'
 import useFetchList from 'api/useFetchList'
-
+import H4 from 'components/typography/H4'
 
 const createStyles = (id) => ({
 	padding: '0.5em',
@@ -22,9 +22,9 @@ const Discover = () => {
 	if(authenticated) {
 		return (
 			<div>
-				<div>
+				<H4>
 					Hello, this is the discover page. You need to be authenticated to see me.
-				</div>
+				</H4>
 				<ul>
 					{
 						data?.map(

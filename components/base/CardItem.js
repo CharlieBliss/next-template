@@ -200,7 +200,6 @@ export const CardItem = ({
 }) => {
 	const theme = useTheme()
 	const classes = styles(theme)
-	console.log(titleTo)
 	if (!recordId) {
 		return (
 			<div css={[ classes.cardWrapper, classes.emptyCardWrapper, css ]}>

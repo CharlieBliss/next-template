@@ -1,11 +1,16 @@
-import { useEffect } from 'react'
-import Layout from 'components/Layout'
-import { createContext, useState } from 'react'
+import { useEffect, createContext, useState } from 'react'
 import { getCurrentJwtToken } from 'auth/awsAmplify'
 import { ThemeProvider } from 'emotion-theming'
 import theme from 'styles/theme'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import dayjs from 'dayjs'
+import { ChatContextProvider } from 'components/chat/ChatContext'
+import { FeedContextProvider } from 'components/activityFeed/FeedContext'
+import Layout from 'components/Layout'
+import 'stream-chat-react/dist/css/index.css'
+import { ReactQueryDevtools } from "react-query-devtools";
+import { StylesProvider } from '@material-ui/core/styles';
+
 
 const emptyObj = {}
 export const AuthContext = createContext(emptyObj)
@@ -28,13 +33,20 @@ const App = ({ Component, pageProps }) => {
 		authenticated, setAuthenticated, activeProfileId, setActiveProfileId,
 	}
 	return (
-		<AuthContext.Provider value={context}>
-			<ThemeProvider theme={theme}>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
-			</ThemeProvider>
-		</AuthContext.Provider>
+		<StylesProvider injectFirst>
+			<AuthContext.Provider value={context}>
+				<FeedContextProvider>
+					<ChatContextProvider>
+						<ThemeProvider theme={theme}>
+							<Layout>
+								<Component {...pageProps} />
+							</Layout>
+						</ThemeProvider>
+					</ChatContextProvider>
+				</FeedContextProvider>
+				{/* <ReactQueryDevtools initialIsOpen /> */}
+			</AuthContext.Provider>
+		</StylesProvider>
 	)
 }
 

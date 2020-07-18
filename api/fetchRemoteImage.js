@@ -16,7 +16,6 @@ const bucketAndKeyFromUrl = (url) => {
 export const signUrl = async (url) => {
 	if (url) {
 		let signedUrl = bucketAndKeyFromUrl(url)
-		console.log(signedUrl)
 		if (signedUrl.indexOf([process.env.NEXT_PUBLIC_AWS_PUBLIC_ASSET]) !== -1) {
 			signedUrl = await getSignedUrl(
 				...signedUrl,

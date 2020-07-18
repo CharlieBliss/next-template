@@ -8,9 +8,13 @@ function ActiveLink({ children, href, onClick = () => {} }) {
   }
 
   const handleClick = (e) => {
-	e.preventDefault()
-	onClick()
+  e.preventDefault()
+  if(onClick){
+    onClick()
+  }
+  if(href){
     router.push(href)
+  }
   }
 
   return (
