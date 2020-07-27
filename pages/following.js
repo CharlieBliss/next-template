@@ -75,10 +75,8 @@ const Following = () => {
 	const [feed, setFeed] = useState([])
 	const [act, setActFeed] = useState([])
 	const { followingFeed, activityFeed, init } = useFeedContext()
-	console.log('following')
 	useEffect(() => {
 		if(init) {
-			console.log(init, followingFeed)
 			activityFeed.get({ limit: 20, mark_seen: true, mark_read: false }).then((res) => {
 				setActFeed(res.results)
 			})

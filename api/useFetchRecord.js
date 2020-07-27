@@ -10,6 +10,5 @@ export default (queryKey, id, queryParams = {}, settings) => useQuery(
 		},
 		refetchOnWindowFocus: false,
 		...settings
-
 	}
 )

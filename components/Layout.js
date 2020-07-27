@@ -39,16 +39,14 @@ const globalStyles = ({ colors }) => ({
 })
 
 export default function Navigation({ children }) {
-	const { data } = useFetchList('account/profiles')
+	// const { data } = useFetchList('account/profiles')
 	const theme = useTheme()
 	const { setActiveProfileId } = useContext(AuthContext)
-	const { setChatDrawerOpen } = useChatContext()
+	// const { setChatDrawerOpen } = useChatContext()
 	useEffect(
 		() => {
-			if (data) {
-				setActiveProfileId(data[0].id)
-			}
-		}, [data]
+			setActiveProfileId(112)
+		}, []
 	)
   return (
 	<div css={baseStyles(theme)} >
@@ -131,7 +129,7 @@ export default function Navigation({ children }) {
 		<div css={contentStyles}>
 			{children}
 		</div>
-		<ChannelDrawer />
+		{/* <ChannelDrawer /> */}
 		<Global styles={globalStyles(theme)} />
 	</div>
   )

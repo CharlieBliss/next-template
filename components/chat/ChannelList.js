@@ -4,14 +4,12 @@ import toPairs from 'ramda/src/toPairs'
 import omit from 'ramda/src/omit'
 import last from 'ramda/src/last'
 import { FixedSizeList } from 'react-window'
-import InfiniteLoader from 'react-window-infinite-loader'
 import Body10 from 'components/typography/Body10'
 import ChannelListItem from 'components/chat/ChannelListItem'
 import { useChatContext } from 'components/chat/ChatContext'
 
 import { makeStyles } from '@material-ui/styles'
 import InfiniteList from 'components/base/InfiniteList'
-import useFetchList from 'api/useFetchList'
 
 const useStyles = makeStyles({
 	noChannelsContainer: {
@@ -40,7 +38,6 @@ export const ChannelList = () => {
 	const queryParams = {
 		profile_ids: channelProfiles
 	}
-	// useFetchList('profiles', queryParams)
 	const loadMore = useCallback(() => fetchAndSetNextChannels({
 		offset: channels.length,
 	}), [channels.length])
@@ -61,7 +58,6 @@ export const ChannelList = () => {
 						/>
 					)
 				}
-
 			/>
 		)
 	}

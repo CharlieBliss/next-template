@@ -37,6 +37,7 @@
     "react-query": "^1.5.5",
     "react-query-devtools": "^2.3.0",
     "react-slick": "^0.26.1",
+    "react-virtualized-auto-sizer": "^1.0.2",
     "react-window": "^1.8.5",
     "react-window-infinite-loader": "^1.0.5",
     "stream-chat": "^1.13.0",

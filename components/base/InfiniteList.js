@@ -14,13 +14,14 @@ const useStyles = makeStyles({
 })
 
 
-export const InfiniteList = ({ loadMore, Component, itemCount, listData }) => {
-	const load = () => {console.log('i losf')}
+export const InfiniteList = ({ loadMore, Component, itemCount, listData, isLoading }) => {
 	return (
 		<InfiniteLoader
 			itemCount={itemCount}
 			loadMoreItems={loadMore}
-			isItemLoaded={() => {true}}
+			isItemLoaded={index => {
+       			return listData[index]?.id
+    		}}
 		>
 			{
 				({ onItemsRendered, ref }) => (
