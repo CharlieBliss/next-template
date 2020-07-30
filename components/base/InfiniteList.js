@@ -18,7 +18,8 @@ export const InfiniteList = ({ loadMore, Component, itemCount, listData, isLoadi
 	return (
 		<InfiniteLoader
 			itemCount={itemCount}
-			loadMoreItems={loadMore}
+			// Default argument here is itemcount which messes up react-query infinite scroll
+			loadMoreItems={() => loadMore()}
 			isItemLoaded={index => {
        			return listData[index]?.id
     		}}

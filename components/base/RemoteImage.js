@@ -21,7 +21,7 @@ const urlFromUuid = (uuid, imageSize = 150, recordId = 100) => {
 }
 
 export const RemoteImage = ({
-	uuid, imgSrc, alt, imageTag, imageCss,
+	uuid, imgSrc, alt, imageTag, imageCss = [],
 	rounded, hideLoading, css, imgMissing, recordId,
 	imageSize,
 }) => {
@@ -36,7 +36,7 @@ export const RemoteImage = ({
 	if (url && !imageTag) {
 		return (
 			<img
-				css={[css, imageCss]}
+				css={[css, ...imageCss]}
 				src={url}
 				alt={alt}
 			/>
@@ -48,7 +48,7 @@ export const RemoteImage = ({
 				href={url}
 				width="100%"
 				height="100%"
-				css={[css, imageCss]}
+				css={[css, ...imageCss]}
 			/>
 		)
 	}

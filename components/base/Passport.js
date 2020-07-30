@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
+import { jsx, css } from '@emotion/core'
 import { useTheme } from 'emotion-theming'
 
 import Link from 'components/base/Link'
@@ -69,6 +69,12 @@ const useStyles = ({ opacity, colors, typography }) => ({
 	},
 })
 
+const imageStyle = css`
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+`
+
 const Title = ({ title, titleLink, noHover, truncate, blackText }) => {
 	const theme = useTheme()
 	const classes = useStyles(theme)
@@ -120,7 +126,7 @@ export const Passport = ({
 				truncate && classes.wrapper,
 			]}
 		>
-			<div>
+			<div css={imageStyle}>
 				<RemoteImage
 					src={src}
 					imageSize={'xs'}
@@ -131,7 +137,7 @@ export const Passport = ({
 					rounded
 					withBorder={imageBorder}
 					imageCss={[
-						classes.avatar,
+						imageStyle,
 						reverse ? classes.reverseAvatar : {},
 						avatarClassName,
 					]}
