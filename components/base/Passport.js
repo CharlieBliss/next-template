@@ -129,7 +129,7 @@ export const Passport = ({
 			<div css={imageStyle}>
 				<RemoteImage
 					src={src}
-					imageSize={'xs'}
+					imageSize={50}
 					badge={avatarBadge}
 					passport
 					cover
@@ -138,8 +138,8 @@ export const Passport = ({
 					withBorder={imageBorder}
 					imageCss={[
 						imageStyle,
-						reverse ? classes.reverseAvatar : {},
-						avatarClassName,
+						// reverse ? classes.reverseAvatar : {},
+						// avatarClassName,
 					]}
 					loading={loading}
 				/>
