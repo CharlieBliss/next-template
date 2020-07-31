@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import AsyncAutoComplete from 'components/form/AsyncAutocomplete'
+import { Button } from '@material-ui/core'
 
 const filterWrapper = css`
 	display: flex;
@@ -36,8 +37,24 @@ export const Filters = ({ filters = {}, setFilters }) => {
 				<MenuItem value={undefined}>Clear </MenuItem>
 			</Select>
 			<AsyncAutoComplete
+				label="Genre"
 				path="genres"
+				filterKey="genre"
+				setTempFilters={setTempFilters}
+				value={tempFilters.genre}
 			/>
+			<AsyncAutoComplete
+				label="Looking For"
+				path="track-looking-for-tags"
+				filterKey="looking_for_ids"
+				setTempFilters={setTempFilters}
+				value={tempFilters.looking_for_ids}
+			/>
+			<Button
+				onClick={() => setFilters(tempFilters)}
+			>
+				Filter
+			</Button>
 		</div>
 	)
 }

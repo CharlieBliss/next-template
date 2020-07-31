@@ -27,7 +27,7 @@ export default (queryKey, queryParams = {}, dnsOverride, shouldFetch = true) => 
 		fetchMore,
 		canFetchMore,
 		} = useInfiniteQuery(
-			queryKey,
+			[queryKey, queryParams],
 			apiFetchMore,
 			{
 				getFetchMore: (lastResults, allResults) => {
