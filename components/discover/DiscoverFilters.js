@@ -5,7 +5,8 @@ import TextField from '@material-ui/core/TextField'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import AsyncAutoComplete from 'components/form/AsyncAutocomplete'
-import { Button } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
+import CommunityFilter from 'components/list/CommunityFilter'
 
 const filterWrapper = css`
 	display: flex;
@@ -49,6 +50,10 @@ export const Filters = ({ filters = {}, setFilters }) => {
 				filterKey="looking_for_ids"
 				setTempFilters={setTempFilters}
 				value={tempFilters.looking_for_ids}
+			/>
+			<CommunityFilter
+				setTempFilters={setTempFilters}
+				tempFilters={tempFilters}
 			/>
 			<Button
 				onClick={() => setFilters(tempFilters)}

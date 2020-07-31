@@ -31,18 +31,20 @@ const debouncedSearch = debounce(
 )
 
 
-export const AsyncAutoComplete = ({ setTempFilters, path, filterKey, value='', label }) => {
+export const AsyncAutoComplete = ({ setTempFilters, path, filterKey, value='', label, clearFilters }) => {
 	const [options, setOptions] = useState([])
 	const [loading, setLoading] = useState(false)
 	const [open, setOpen] = useState(false)
-	useEffect(() => {
-		if(loading) {
-			return
-		}
-		if(open && !options.length) {
-			getOptions(setOptions, setLoading, path)
-		}
-	}, [open]
+	console.log(value)
+	useEffect(
+		() => {
+			if(loading) {
+				return
+			}
+			if(open) {
+				getOptions(setOptions, setLoading, path)
+			}
+		}, [open, filterKey]
 	)
 	return (
 		<Autocomplete
@@ -52,16 +54,16 @@ export const AsyncAutoComplete = ({ setTempFilters, path, filterKey, value='', l
 			getOptionLabel={(option) => option.name || ''}
 			getOptionSelected={(option, value) => {
 				if(!value) {
-					return null
+					return false
 				}
 				return option.id === value.id
 			}}
-			value={options.find(option => option.id === value)}
+			value={options.find(option => option.id === value) || null}
 			onChange={(event, newValue) => {
 				if(newValue) {
-					setTempFilters(options => ({ ...options, [filterKey]: newValue.id }))
+					setTempFilters(options => (omit(clearFilters, { ...options, [filterKey]: newValue.id })))
 				} else {
-					setTempFilters(options => omit([filterKey], options))
+					setTempFilters(options => omit([filterKey, ...clearFilters], options))
 				}
 			}}
 			style={{ width: 300 }}

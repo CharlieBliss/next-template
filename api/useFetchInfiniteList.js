@@ -5,8 +5,7 @@ import flatten from 'ramda/src/flatten'
 
 export default (queryKey, queryParams = {}, dnsOverride, shouldFetch = true) => {
 	const [total, setTotal] = useState(0)
-	const apiFetchMore = async (key, nextId = 1) => {
-		console.log(nextId)
+	const apiFetchMore = async (key, qp, nextId = 1) => {
 		const params = {
 			...queryParams,
 			page: nextId,
@@ -14,7 +13,7 @@ export default (queryKey, queryParams = {}, dnsOverride, shouldFetch = true) => 
 		if (!shouldFetch) {
 			return []
 		}
-		const data = await apiRequest({path: queryKey, queryParams: params, dnsOverride })()
+		const data = await apiRequest({ path: queryKey, queryParams: params, dnsOverride })()
 		setTotal(data.total)
 		return data.results
 	}
@@ -30,10 +29,7 @@ export default (queryKey, queryParams = {}, dnsOverride, shouldFetch = true) => 
 			[queryKey, queryParams],
 			apiFetchMore,
 			{
-				getFetchMore: (lastResults, allResults) => {
-					console.log(allResults, allResults.length + 1)
-					return allResults.length + 1
-				}
+				getFetchMore: (lastResults, allResults) => allResults.length + 1
 			}
 		)
 	return {
