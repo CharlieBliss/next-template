@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core'
+import { jsx, css } from '@emotion/core'
 
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import map from 'ramda/src/map'
@@ -7,7 +7,7 @@ import prop from 'ramda/src/prop'
 import Link from 'components/base/Link'
 
 
-import Carousel from 'components/base/Carousel'
+import Carousel, { emblaSlide } from 'components/base/Carousel'
 import LinkedPageSection from 'components/base/LinkedPageSection'
 import useFetchList from 'api/useFetchList'
 
@@ -27,6 +27,8 @@ const spotlightStyles = ({ breakpoints }) => ({
 	// 	height: 159,
 	// },
 })
+
+
 
 let mediaQueryString = ''
 export const QuadioSpotlight = ({ section }) => {
@@ -61,11 +63,16 @@ export const QuadioSpotlight = ({ section }) => {
 				// 	key={`${linkTo}-${position}`}
 				// 	href={linkTo}
 				// >
+				<div
+					css={emblaSlide}
+				>
 					<img
 						alt={linkTo}
 						css={spotlightStyles}
+						className="embla__slide__img"
 						src={`https://${prop('large', asset)}`}
 					/>
+				</div>
 				// </Link>
 
 			)
@@ -74,20 +81,18 @@ export const QuadioSpotlight = ({ section }) => {
 	)
 
 	return (
-		<LinkedPageSection>
-			<Carousel
-				slidesPerPage={2}
-				slidesPerScroll={2}
-				// smSlidesPerPage={1}
-				// smSlidesPerScroll={1}
-				// xsSlidesPerPage={1}
-				// xsSlidesPerScroll={1}
-				// xsItemWidth={320}
-				// processing={isLoading}
-			>
-				{carouselAssets}
-			</Carousel>
-		</LinkedPageSection>
+		<Carousel
+			slidesPerPage={2}
+			slidesPerScroll={2}
+			// smSlidesPerPage={1}
+			// smSlidesPerScroll={1}
+			// xsSlidesPerPage={1}
+			// xsSlidesPerScroll={1}
+			// xsItemWidth={320}
+			// processing={isLoading}
+		>
+			{carouselAssets}
+		</Carousel>
 	)
 }
 

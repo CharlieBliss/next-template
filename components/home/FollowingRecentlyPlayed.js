@@ -2,16 +2,21 @@ import length from 'ramda/src/length'
 import times from 'ramda/src/times'
 import { ternary, indexedMap } from 'util/ramdaPlus'
 import useFetchList from 'api/useFetchList'
-
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 // Components
 import LinkedPageSection from 'components/base/LinkedPageSection'
-import Carousel from 'components/base/Carousel'
+import Carousel, { emblaSlide } from 'components/base/Carousel'
 import TrackCard from 'components/track/TrackCard'
 
 // import {
 // 	trackCardWidthXs, trackCardSpacing, emptyTrackCardText,
 // 	followingRecentlyPlayedDelay,
 // } from '@/client/constants/homePage'
+
+const slide = css`
+	min-width: 25%;
+`
 
 export const FollowingRecentlyPlayed = () => {
 	const recordId = 112
@@ -24,12 +29,16 @@ export const FollowingRecentlyPlayed = () => {
 			(item, index) => {
 				const { id } = item
 				return (
-					<TrackCard
-						key={id}
-						index={index}
-						item={item}
-						showPassport
-					/>
+					<div
+						css={[emblaSlide, slide]}
+					>
+						<TrackCard
+							key={id}
+							index={index}
+							item={item}
+							showPassport
+						/>
+					</div>
 				)
 			},
 			data,
@@ -49,13 +58,17 @@ export const FollowingRecentlyPlayed = () => {
 					isLoading
 						? times(
 							i => (
-								<TrackCard
-									key={`loading-${i}`}
-									recordId="loading"
-									passportRecordId="loading"
-									showPassport
-									loading
-								/>
+								<div
+									css={[emblaSlide, slide]}
+								>
+									<TrackCard
+										key={`loading-${i}`}
+										recordId="loading"
+										passportRecordId="loading"
+										showPassport
+										loading
+									/>
+								</div>
 							), 4,
 						)
 						: ternary(

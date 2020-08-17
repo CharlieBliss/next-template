@@ -229,7 +229,7 @@ export const CardItem = ({
 						<RemoteImage
 							uuid={imageUuid}
 							imageSize={150}
-							imageCss={classes.remoteImage}
+							imageCss={[classes.remoteImage]}
 						>
 							<div></div>
 						</RemoteImage>

@@ -1,11 +1,13 @@
 import length from 'ramda/src/length'
 import times from 'ramda/src/times'
+/** @jsx jsx */
+import { jsx } from '@emotion/core'
 import { ternary, indexedMap } from 'util/ramdaPlus'
 import useFetchList from 'api/useFetchList'
 
 // Components
 import LinkedPageSection from 'components/base/LinkedPageSection'
-import Carousel from 'components/base/Carousel'
+import Carousel, { emblaSlide } from 'components/base/Carousel'
 import ProfileCard from 'components/profile/ProfileCard'
 
 // import {
@@ -53,13 +55,15 @@ export const NewCommunityArtists = () => {
 					isLoading
 						? times(
 							i => (
-								<ProfileCard
-									key={`loading-${i}`}
-									recordId="loading"
-									passportRecordId="loading"
-									showPassport
-									loading
-								/>
+								<div css={emblaSlide}>
+									<ProfileCard
+										key={`loading-${i}`}
+										recordId="loading"
+										passportRecordId="loading"
+										showPassport
+										loading
+									/>
+								</div>
 							), 4,
 						)
 						: ternary(
