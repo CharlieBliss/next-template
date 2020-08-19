@@ -137,7 +137,7 @@ const FormWrapper = ({
 							values,
 							formPush: push,
 						})}
-						{/* Uncomment below to debug form values
+						Uncomment below to debug form values
 						{(() => {
 							const { FormSpy } = require('react-final-form')
 							return (
@@ -150,7 +150,7 @@ const FormWrapper = ({
 								</FormSpy>
 							)
 						})()}
-						*/}
+
 					</form>
 				)
 			}}

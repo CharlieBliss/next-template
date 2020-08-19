@@ -108,27 +108,27 @@ const useStyles = makeStyles(theme => ({
 	},
 }))
 
-const drawer = ({ colors }) => css`
+const drawer = ({ palette }) => css`
 	width: 360px;
 	display: flex;
 	flex-direction: column;
 	overflow-y: scroll;
 	overscroll-behavior: contain;
 	height: 100%;
-	background-color: ${colors.base20};
+	background-color: ${palette.background.base20};
 	label: drawer;
 	MuiDrawer-paper: {
 		top: 56px;
 	}
 `
 
-const headerBase = ({ colors }) => css`
+const headerBase = ({ palette }) => css`
 	display: flex;
 	flex-shrink: 0;
 	flex-direction: row;
 	justify-content: space-between;
 	alignItems: center;
-	backgroundColor: ${colors.base10};
+	backgroundColor: ${palette.background.base10};
 `
 
 const header = css`

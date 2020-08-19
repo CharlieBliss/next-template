@@ -45,7 +45,7 @@ const MessageInput = dynamic(() => import("stream-chat-react").then((mod) => mod
 import { useChatContext } from 'components/chat/ChatContext'
 import { useTheme } from 'emotion-theming'
 
-const styles = ({ colors }) => ({
+const styles = ({ palette }) => ({
 	chatWindowWrapper: {
 		label: 'chatWindowWrapper',
 		position: 'fixed',
@@ -74,13 +74,13 @@ const styles = ({ colors }) => ({
 		},
 		'& .messaging.str-chat.dark .str-chat__list': {
 			padding: [[32, 16, 0]],
-			backgroundColor: colors.base20,
-			scrollbarColor: `${colors.base10} transparent`,
+			backgroundColor: palette.background.base20,
+			scrollbarColor: `${palette.background.base10} transparent`,
 			'&::-webkit-scrollbar': {
 				background: 'transparent',
 			},
 			'&::-webkit-scrollbar-thumb': {
-				background: colors.base10,
+				background: palette.background.base10,
 				borderRadius: 4,
 			},
 		},
@@ -89,12 +89,12 @@ const styles = ({ colors }) => ({
 			display: 'none',
 		},
 		'& .dark.str-chat .str-chat__input ': {
-			backgroundColor: colors.base20,
+			backgroundColor: palette.background.base20,
 			padding: 16,
 			boxShadow: 'none',
 		},
 		'& .dark.str-chat .str-chat__input textarea': {
-			backgroundColor: colors.base10,
+			backgroundColor: palette.background.base10,
 			height: 36,
 			borderRadius: 18,
 			border: 0,
@@ -117,7 +117,7 @@ const styles = ({ colors }) => ({
 		},
 		// Emoji picker
 		'& .emoji-mart-category .emoji-mart-emoji span, .emoji-mart-anchors, .emoji-mart-bar': {
-			color: colors.white,
+			color: palette.background.white,
 			opacity: 0.8,
 		},
 		'& .emoji-mart-category .emoji-mart-emoji:hover:before': {
@@ -135,32 +135,32 @@ const styles = ({ colors }) => ({
 				marginRight: 8,
 				width: '100%',
 				// ...theme.typography.body60,
-				color: colors.red,
+				color: palette.error,
 			},
 		},
 		'& .rta__autocomplete': {
 			marginBottom: 20,
 			padding: 0,
-			backgroundColor: colors.base20,
+			backgroundColor: palette.background.base20,
 		},
 		'& .rta__list': {
 			overflowY: 'auto',
 			height: 300,
 			border: 'none',
-			backgroundColor: colors.base20,
+			backgroundColor: palette.background.base20,
 			padding: 0,
 		},
 		'& .dark.str-chat .str-chat__emojisearch .rta__list-header': {
-			backgroundColor: colors.base10,
+			backgroundColor: palette.background.base10,
 		},
 		'& .rta__item:not(:last-child)': {
 			borderBottom: 'none',
 		},
 		'& .rta__entity': {
 			padding: 0,
-			backgroundColor: colors.base20,
+			backgroundColor: palette.background.base20,
 			'&:hover': {
-				backgroundColor: colors.base40,
+				backgroundColor: palette.background.base40,
 			},
 		},
 		'& .str-chat__emoji-item': {

@@ -4,7 +4,6 @@ import { jsx, css, Global } from '@emotion/core'
 import Link from 'next/Link'
 import useFetchList from 'api/useFetchList'
 import { AuthContext } from 'pages/_app'
-import { useTheme } from 'emotion-theming'
 import ChannelDrawer from 'components/chat/ChannelDrawer'
 import ChatWindow from 'components/chat/ChatWindow'
 import { useChatContext } from 'components/chat/ChatContext'
@@ -40,69 +39,68 @@ const globalStyles = ({ colors }) => ({
 
 export default function Navigation({ children }) {
 	// const { data } = useFetchList('account/profiles')
-	const theme = useTheme()
 	const { setActiveProfileId } = useContext(AuthContext)
-	// const { setChatDrawerOpen } = useChatContext()
+	const { setChatDrawerOpen } = useChatContext()
 	useEffect(
 		() => {
 			setActiveProfileId(112)
 		}, []
 	)
   return (
-	<div css={baseStyles(theme)} >
-		<div css={navBarStyles(theme)}>
+	<div css={baseStyles} >
+		<div css={navBarStyles}>
 			<div>
 				<Link href="/home">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Home
 					</a>
 				</Link>
 			</div>
 			<div >
 				<Link href="/login">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Login
 					</a>
 				</Link>
 			</div>
 			<div>
 				<Link href="/discover">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Discover
 					</a>
 				</Link>
 			</div>
 			<div>
 				<Link href="/following">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Following
 					</a>
 				</Link>
 			</div>
 			<div>
 				<Link href="/communities">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Communities
 					</a>
 				</Link>
 			</div>
 			<div>
 				<Link href="/charts">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Charts
 					</a>
 				</Link>
 			</div>
 			<div>
 				<Link href="/profiles">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Profiles
 					</a>
 				</Link>
 			</div>
 			<div>
 				<Link href="/create">
-					<a css={navItemStyles(theme)}>
+					<a css={navItemStyles}>
 						Create Track
 					</a>
 				</Link>
@@ -120,7 +118,7 @@ export default function Navigation({ children }) {
 							return 'chat'
 						})
 					}}
-					css={navItemStyles(theme)}
+					css={navItemStyles}
 				>
 					Chat
 				</div>
@@ -130,7 +128,7 @@ export default function Navigation({ children }) {
 			{children}
 		</div>
 		{/* <ChannelDrawer /> */}
-		<Global styles={globalStyles(theme)} />
+		<Global styles={globalStyles} />
 	</div>
   )
 }

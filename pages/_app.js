@@ -1,7 +1,8 @@
 import { useEffect, createContext, useState } from 'react'
 import { getCurrentJwtToken } from 'auth/awsAmplify'
+import { ThemeProvider as MaterialThemeProvider, StylesProvider } from '@material-ui/core/styles'
 import { ThemeProvider } from 'emotion-theming'
-import theme from 'styles/theme'
+import materialTheme, { theme } from 'styles/theme'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import dayjs from 'dayjs'
 import { ChatContextProvider } from 'components/chat/ChatContext'
@@ -9,7 +10,6 @@ import { FeedContextProvider } from 'components/activityFeed/FeedContext'
 import Layout from 'components/Layout'
 import 'stream-chat-react/dist/css/index.css'
 import { ReactQueryDevtools } from "react-query-devtools";
-import { StylesProvider } from '@material-ui/core/styles';
 
 
 const emptyObj = {}
@@ -37,11 +37,13 @@ const App = ({ Component, pageProps }) => {
 			<AuthContext.Provider value={context}>
 				<FeedContextProvider>
 					<ChatContextProvider>
-						<ThemeProvider theme={theme}>
-							<Layout>
-								<Component {...pageProps} />
-							</Layout>
-						</ThemeProvider>
+						<MaterialThemeProvider theme={materialTheme}>
+							<ThemeProvider theme={theme}>
+								<Layout>
+									<Component {...pageProps} />
+								</Layout>
+							</ThemeProvider>
+						</MaterialThemeProvider>
 					</ChatContextProvider>
 				</FeedContextProvider>
 				{/* <ReactQueryDevtools initialIsOpen /> */}

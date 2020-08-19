@@ -5,6 +5,10 @@ import Form from 'components/form/Form'
 import UploadField from 'components/form/UploadField'
 import { AuthContext } from 'pages/_app'
 import apiRequest from 'api/apiRequest'
+import InputField from 'components/form/InputField'
+import TextAreaField from 'components/form/TextAreaField'
+import AutoCompleteField from 'components/form/AutoCompleteField'
+import RadioField from 'components/form/RadioField'
 
 const rawAudioBucketName = process.env.NEXT_PUBLIC_AWS_RAW_AUDIO
 
@@ -85,8 +89,53 @@ const Create = () => {
 									/>
 							</div>
 							<div>
-								<label>Title</label>
-								<Field name="title" component="input" placeholder="title" />
+
+								<InputField label="Title" apiKey="title" />
+							</div>
+							<div>
+								<TextAreaField label="Description" apiKey="description" />
+							</div>
+							<div>
+								<TextAreaField label="Caption" apiKey="caption" />
+							</div>
+							<div>
+								<AutoCompleteField path="sub-genres" label="Genre" apiKey="genre" />
+							</div>
+							<div>
+								<RadioField label="Status" apiKey="status" options={
+									[
+										{
+											value: 'wip',
+											label: 'Work in Progress'
+										},
+										{
+											value: 'complete',
+											label: 'Complete',
+										}
+									]
+								} />
+							</div>
+							<div>
+								<RadioField label="Privacy Settings" apiKey="public" options={
+									[
+										{
+											value: true,
+											label: 'Public'
+										},
+										{
+											value: false,
+											label: 'Private',
+										}
+									]
+								} />
+							</div>
+							<div>
+								<AutoCompleteField
+									path="profiles"
+									label="Add Collaborators"
+									apiKey="collaborators"
+									multi
+								/>
 							</div>
 							<button type="submit">Submit</button>
 						</div>

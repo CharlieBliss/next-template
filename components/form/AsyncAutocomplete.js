@@ -5,37 +5,48 @@ import omit from 'ramda/src/omit'
 import apiRequest from 'api/apiRequest'
 import TextField from '@material-ui/core/TextField'
 
-const getOptions = async (setGenres, setLoading, path) => {
+const getOptions = async (setOptions, setLoading, path, queryParams = {}) => {
 	setLoading(true)
 	const res = await apiRequest({
 		path,
+		queryParams,
 	})()
-	setGenres(res.results)
+	setOptions(res.results)
 	setLoading(false)
 }
 
 const debouncedSearch = debounce(
-	async (setGenres, setLoading, path, query) => {
+	async (setOptions, setLoading, path, query, queryParams = {}) => {
 		setLoading(true)
 		const res = await apiRequest({
 			path,
 			queryParams: {
 				q: query,
 				sort: 'relevance',
+				...queryParams
 			}
 		})()
-		console.log(res)
-		setGenres(res.results)
+		setOptions(res.results)
 		setLoading(false)
 	}, 500
 )
 
 
-export const AsyncAutoComplete = ({ setTempFilters, path, filterKey, value='', label, clearFilters }) => {
+export const AsyncAutoComplete = ({
+	setTempFilters,
+	path,
+	filterKey,
+	value = [],
+	label,
+	clearFilters,
+	onChange,
+	queryParams,
+	multi,
+}) => {
 	const [options, setOptions] = useState([])
 	const [loading, setLoading] = useState(false)
 	const [open, setOpen] = useState(false)
-	console.log(value)
+
 	useEffect(
 		() => {
 			if(loading) {
@@ -51,20 +62,25 @@ export const AsyncAutoComplete = ({ setTempFilters, path, filterKey, value='', l
 			options={options}
 			onOpen={() => setOpen(true)}
 			onClose={() => setOpen(false)}
+			multiple={multi}
 			getOptionLabel={(option) => option.name || ''}
 			getOptionSelected={(option, value) => {
 				if(!value) {
 					return false
 				}
+				// if (multi) {
+				// 	return option.id === value.includes(option)
+				// }
 				return option.id === value.id
 			}}
-			value={options.find(option => option.id === value) || null}
+			value={value}
 			onChange={(event, newValue) => {
-				if(newValue) {
-					setTempFilters(options => (omit(clearFilters, { ...options, [filterKey]: newValue.id })))
-				} else {
-					setTempFilters(options => omit([filterKey, ...clearFilters], options))
-				}
+				return onChange(newValue)
+				// if (newValue) {
+				// 	setTempFilters(options => (omit(clearFilters, { ...options, [filterKey]: newValue.id })))
+				// } else {
+				// 	setTempFilters(options => omit([filterKey, ...clearFilters], options))
+				// }
 			}}
 			style={{ width: 300 }}
 			renderInput={(params) => (
@@ -72,7 +88,7 @@ export const AsyncAutoComplete = ({ setTempFilters, path, filterKey, value='', l
 					{...params}
 					label={label}
 					variant="outlined"
-					onChange={e => debouncedSearch(setOptions, setLoading, path, e.target.value)}
+					onChange={e => debouncedSearch(setOptions, setLoading, path, e.target.value, queryParams)}
 				/>
 			)}
 		/>
