@@ -12,15 +12,17 @@ export const AutoCompleteField = ({ apiKey, label, path, multi, queryParams }) =
 		<Field
 			name={apiKey}
 			render={({ input }) => {
-				return <AsyncAutoComplete
-					onChange={input.onChange}
-					label={label}
-					variant="outlined"
-					path={path}
-					multi={multi}
-					queryParams={queryParams}
-					value={input.value || (multi ? [] : '')}
-				/>
+				return (
+					<AsyncAutoComplete
+						onChange={input.onChange}
+						label={label}
+						variant="outlined"
+						path={path}
+						multi={multi}
+						queryParams={queryParams}
+						value={input.value || (multi ? [] : '')}
+					/>
+				)
 			}}
 		/>
 	)

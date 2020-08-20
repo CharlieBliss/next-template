@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Storage } from 'aws-amplify'
-import { getIdentityId }  from 'auth/awsAmplify'
+import { getIdentityId } from 'auth/awsAmplify'
 
 const publicAssetBucketName = process.env.NEXT_PUBLIC_AWS_PUBLIC_ASSET
 const rawAudioBucketName = process.env.NEXT_PUBLIC_AWS_RAW_AUDIO
@@ -16,7 +16,6 @@ const getUrlFromStoragePut = async (level, bucket, key) => {
 	if (level === 'private') {
 		const identityId = await getIdentityId()
 		return `https://${bucket}.s3.amazonaws.com/${`${identityId}/${key}`}`
-
 	}
 	return `https://${bucket}.s3.amazonaws.com/${key}`
 }

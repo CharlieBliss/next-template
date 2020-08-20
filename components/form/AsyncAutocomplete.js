@@ -49,10 +49,10 @@ export const AsyncAutoComplete = ({
 
 	useEffect(
 		() => {
-			if(loading) {
+			if (loading) {
 				return
 			}
-			if(open) {
+			if (open) {
 				getOptions(setOptions, setLoading, path)
 			}
 		}, [open, filterKey]
@@ -64,24 +64,20 @@ export const AsyncAutoComplete = ({
 			onClose={() => setOpen(false)}
 			multiple={multi}
 			getOptionLabel={(option) => option.name || ''}
-			getOptionSelected={(option, value) => {
-				if(!value) {
+			getOptionSelected={(option, nextValue) => {
+				if (!value) {
 					return false
 				}
-				// if (multi) {
-				// 	return option.id === value.includes(option)
-				// }
-				return option.id === value.id
+				return option.id === nextValue.id
 			}}
 			value={value}
-			onChange={(event, newValue) => {
-				return onChange(newValue)
+			onChange={(event, newValue) => onChange(newValue)
 				// if (newValue) {
 				// 	setTempFilters(options => (omit(clearFilters, { ...options, [filterKey]: newValue.id })))
 				// } else {
 				// 	setTempFilters(options => omit([filterKey, ...clearFilters], options))
 				// }
-			}}
+			}
 			style={{ width: 300 }}
 			renderInput={(params) => (
 				<TextField

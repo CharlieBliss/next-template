@@ -1,6 +1,5 @@
-import { useContext } from 'react'
-import { Field } from 'react-final-form'
-import { useMutation, queryCache }  from 'react-query'
+import { useContext, useState } from 'react'
+import { useMutation, queryCache } from 'react-query'
 import Form from 'components/form/Form'
 import UploadField from 'components/form/UploadField'
 import { AuthContext } from 'pages/_app'
@@ -9,6 +8,8 @@ import InputField from 'components/form/InputField'
 import TextAreaField from 'components/form/TextAreaField'
 import AutoCompleteField from 'components/form/AutoCompleteField'
 import RadioField from 'components/form/RadioField'
+import ImageUpload from 'components/form/ImageUpload'
+import { publicAssetBucket } from 'envDefaults'
 
 const rawAudioBucketName = process.env.NEXT_PUBLIC_AWS_RAW_AUDIO
 
@@ -41,6 +42,7 @@ const validationSchema = {
 
 const Create = () => {
 	const { activeProfileId } = useContext(AuthContext)
+	const [isUploading, setIsUploading] = useState(false)
 	const [mutate] = useMutation(
 		({ queryKey, payload, method = "POST", queryParams, activeProfileId }) =>
 			apiRequest({path: queryKey, method, queryParams, payload, activeProfileId  })(),
@@ -111,23 +113,27 @@ const Create = () => {
 										{
 											value: 'complete',
 											label: 'Complete',
-										}
+										},
 									]
 								} />
 							</div>
 							<div>
-								<RadioField label="Privacy Settings" apiKey="public" options={
-									[
-										{
-											value: true,
-											label: 'Public'
-										},
-										{
-											value: false,
-											label: 'Private',
-										}
-									]
-								} />
+								<RadioField
+									label="Privacy Settings"
+									apiKey="public"
+									options={
+										[
+											{
+												value: true,
+												label: 'Public'
+											},
+											{
+												value: false,
+												label: 'Private',
+											},
+										]
+									}
+								/>
 							</div>
 							<div>
 								<AutoCompleteField
@@ -135,6 +141,15 @@ const Create = () => {
 									label="Add Collaborators"
 									apiKey="collaborators"
 									multi
+								/>
+							</div>
+							<div>
+								<ImageUpload
+									apiKey="image_url"
+									imageUuidApiKey="image_uuid"
+									isUploadingListener={setIsUploading}
+									addPreSubmitPromise={addPreSubmitPromise}
+									uploadBucket={publicAssetBucket}
 								/>
 							</div>
 							<button type="submit">Submit</button>

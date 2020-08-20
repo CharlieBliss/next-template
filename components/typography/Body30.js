@@ -1,14 +1,15 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
-const fontStyles = ({ palette }) => css`
-	color: ${palette.text.primary}
+
+const fontStyles = ({ colors }) => css`
+	color: ${colors.text}
 	font-size: 14px;
 	font-weight: normal;
 `
 
-export const Body30 = ({ children, }) => {
+export const Body30 = ({ children }) => {
 	return (
-		<div css={(theme) => fontStyles(theme)}>
+		<div css={fontStyles}>
 			{children}
 		</div>
 	)
