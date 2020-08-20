@@ -19,7 +19,7 @@ const createStyles = (id) => ({
 
 const Communities = () => {
 	const { authenticated } = useContext(AuthContext)
-	const { status, data, error } = useFetchList('communities')
+	const { status, data, error } = useFetchList({ queryKey: 'communities' })
 	if(authenticated) {
 		return (
 			<div>

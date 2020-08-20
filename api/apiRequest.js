@@ -1,9 +1,9 @@
 import ajax from 'api/ajax'
 import { getCurrentJwtToken } from 'auth/awsAmplify'
 
-export default ({
+export default async ({
 	path, payload, method = 'GET', queryParams = {}, activeProfileId, authenticated = true, dnsOverride,
-}) => async () => {
+}) => {
 	let jwtToken
 	if (authenticated) {
 		jwtToken = await getCurrentJwtToken()

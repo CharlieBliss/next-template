@@ -24,25 +24,25 @@ export const FollowingRecentlyPlayed = () => {
 		page_size: 12,
 		active_profile_id: 112,
 	}
-	const { data = [], isLoading } = useFetchList(`profiles/${recordId}/following-plays`, queryParams)
+	const { data = [], isLoading } = useFetchList({ queryKey: `profiles/${recordId}/following-plays`, queryParams })
 	const playedTracks = indexedMap(
-			(item, index) => {
-				const { id } = item
-				return (
-					<div
-						css={[emblaSlide, slide]}
-					>
-						<TrackCard
-							key={id}
-							index={index}
-							item={item}
-							showPassport
-						/>
-					</div>
-				)
-			},
-			data,
-		)
+		(item, index) => {
+			const { id } = item
+			return (
+				<div
+					css={[emblaSlide, slide]}
+				>
+					<TrackCard
+						key={id}
+						index={index}
+						item={item}
+						showPassport
+					/>
+				</div>
+			)
+		},
+		data,
+	)
 
 	return (
 		<LinkedPageSection

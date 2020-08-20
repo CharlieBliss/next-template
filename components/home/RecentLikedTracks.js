@@ -21,21 +21,21 @@ export const RecentLikedTracks = () => {
 		'exclude_remoted': true,
 		active_profile_id: recordId,
 	}
-	const { data = [], isLoading } = useFetchList(`profiles/${recordId}/likes`, queryParams)
+	const { data = [], isLoading } = useFetchList({ queryKey: `profiles/${recordId}/likes`, queryParams })
 	const playedTracks = indexedMap(
-			(item, index) => {
-				const { id } = item
-				return (
-					<TrackCard
-						key={id}
-						index={index}
-						item={item}
-						showPassport
-					/>
-				)
-			},
-			data,
-		)
+		(item, index) => {
+			const { id } = item
+			return (
+				<TrackCard
+					key={id}
+					index={index}
+					item={item}
+					showPassport
+				/>
+			)
+		},
+		data,
+	)
 
 	return (
 		<LinkedPageSection

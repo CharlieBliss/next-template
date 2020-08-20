@@ -22,7 +22,7 @@ export const NewStateTracks = () => {
 		state: 8,
 		active_profile_id: 112,
 	}
-	const { data = [], isLoading } = useFetchList(`tracks`, queryParams)
+	const { data = [], isLoading } = useFetchList({ queryKey: 'tracks', queryParams })
 	const playedTracks = indexedMap(
 			(item, index) => {
 				const { id } = item

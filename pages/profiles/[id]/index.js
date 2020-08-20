@@ -31,14 +31,15 @@ export default function Home() {
 	const router = useRouter()
 	const { id } = router.query
 	const { data } = useFetchRecord('profiles', id)
-	const { loading: playlistLoading, data: playlists } = useFetchList(
-		`collections`, {
+	const { loading: playlistLoading, data: playlists } = useFetchList({
+		queryKey: 'collections',
+		queryParams: {
 			page_size: 10,
 			is_playlist: true,
 			profile_id: id,
 			active_profile_id: 112,
-		}
-	)
+		},
+	})
 	return (
 		<>
 			<div>

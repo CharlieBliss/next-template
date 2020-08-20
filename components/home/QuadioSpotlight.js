@@ -49,7 +49,7 @@ export const QuadioSpotlight = ({ section }) => {
 
 	// Effects
 	const dnsOverride = process.env.NEXT_PUBLIC_BANNER_DOMAIN
-	const { data, isLoading } = useFetchList('carousels', queryParams, dnsOverride)
+	const { data, isLoading } = useFetchList({ queryKey: 'carousels', queryParams, dnsOverride })
 
 	if (!data?.[0]) {
 		return null

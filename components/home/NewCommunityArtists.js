@@ -25,7 +25,10 @@ export const NewCommunityArtists = () => {
 		'exclude_remoted': true,
 		active_profile_id: 112,
 	}
-	const { data = [], isLoading } = useFetchList(`profiles`, queryParams)
+	const { data = [], isLoading } = useFetchList({
+		queryKey: 'profiles',
+		queryParams,
+	})
 	const playedTracks = indexedMap(
 			(item, index) => {
 				const { id } = item

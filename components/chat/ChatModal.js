@@ -159,7 +159,7 @@ export const ChatModal = () => {
 	// END - STATE, CONTEXT, ETC - END
 
 	// START - GET FOLLOWING - START
-	const { data: followingList } = useFetchList('profiles/112/following')
+	const { data: followingList } = useFetchList({ queryKey: 'profiles/112/following' })
 
 	// END - GET FOLLOWING - END
 
@@ -181,7 +181,7 @@ export const ChatModal = () => {
 				},
 				activeProfileId,
 				authenticated: auth,
-			})()
+			})
 			setProfileList(results || emptyProfileList)
 			setLoading(false)
 		}

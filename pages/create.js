@@ -44,8 +44,8 @@ const Create = () => {
 	const { activeProfileId } = useContext(AuthContext)
 	const [isUploading, setIsUploading] = useState(false)
 	const [mutate] = useMutation(
-		({ queryKey, payload, method = "POST", queryParams, activeProfileId }) =>
-			apiRequest({path: queryKey, method, queryParams, payload, activeProfileId  })(),
+		({ queryKey, payload, method = "POST", queryParams }) =>
+			apiRequest({path: queryKey, method, queryParams, payload, activeProfileId }),
 		{
 			onSuccess: async (payload) => {
 				if (payload) {
@@ -55,12 +55,12 @@ const Create = () => {
 							method: 'PATCH',
 							activeProfileId,
 							payload,
-						}
-					)()
+						},
+					)
 					queryCache.refetchQueries('tracks')
 				}
-			}
-		}
+			},
+		},
 	)
 
 	const onSubmit = async (payload) => {

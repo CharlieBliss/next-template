@@ -38,8 +38,7 @@ const initFeed = async (authenticated, setActivityFeed, setFollowingFeed, setIni
 		activeProfileId: 112,
 		method: 'POST',
 		authenticated,
-	})()
-	console.log(res)
+	})
 	const followToken = res.follow_notification_tokens.find(item => item.profile_id === 112).token
 	const token = res.notification_tokens.find(item => item.profile_id === 112).token
 	const client = stream.connect(streamKey, token, streamFeedId)

@@ -24,7 +24,7 @@ const createStyles = (id) => {
 
 const Profiles = () => {
 	const { authenticated } = useContext(AuthContext)
-	const { status, data, error } = useFetchList('profiles')
+	const { status, data, error } = useFetchList({ queryKey: 'profiles' })
 	if(authenticated) {
 		return (
 			<div>

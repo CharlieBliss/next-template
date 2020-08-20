@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useCallback, useContext } from 'react'
+import React, {
+	useEffect, useState, useCallback, useContext
+} from 'react'
 import { StreamChat } from 'stream-chat'
 
 import { streamKey } from 'envDefaults'
@@ -373,7 +375,7 @@ export const ChatContextProvider = ({ children }) => {
 				const userId = activeProfile.user_id.toString()
 				const { token } = await apiRequest({
 					path: 'chat/auth', method: 'POST', authenticated: auth,
-				})()
+				})
 				const userEvent = await client.setUser(
 					{ id: userId },
 					token,

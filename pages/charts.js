@@ -27,8 +27,8 @@ const Discover = () => {
 		sort: 'hotness',
 		exclude_removed: true,
 	}
-	const { data } = useFetchList('tracks', queryParams)
-	if(authenticated) {
+	const { data } = useFetchList({ queryKey: 'tracks', queryParams })
+	if (authenticated) {
 		return (
 			<div>
 				<div>

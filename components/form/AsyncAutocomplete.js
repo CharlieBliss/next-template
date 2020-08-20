@@ -10,7 +10,7 @@ const getOptions = async (setOptions, setLoading, path, queryParams = {}) => {
 	const res = await apiRequest({
 		path,
 		queryParams,
-	})()
+	})
 	setOptions(res.results)
 	setLoading(false)
 }
@@ -24,8 +24,8 @@ const debouncedSearch = debounce(
 				q: query,
 				sort: 'relevance',
 				...queryParams
-			}
-		})()
+			},
+		})
 		setOptions(res.results)
 		setLoading(false)
 	}, 500
