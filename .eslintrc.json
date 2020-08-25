@@ -30,12 +30,14 @@
         "react/react-in-jsx-scope": "off",
         "react/prop-types": [0],
 		"no-tabs": "off",
-		"indent": ["error", "tab"],
+		"indent": ["error", "tab", {
+            "SwitchCase": 1
+        }],
 		"react/jsx-indent": [2, "tab"],
 		"semi": "off",
 		"react/jsx-indent-props": [2, "tab"],
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"arrow-parens": [0],
-		"import/no-named-as-default": [0]
+        "import/no-named-as-default": [0]
     }
 }

@@ -1,7 +1,7 @@
 import length from 'ramda/src/length'
 import times from 'ramda/src/times'
 import { ternary, indexedMap } from 'util/ramdaPlus'
-import useFetchList from 'api/useFetchList'
+import useFetchList from 'logic/api/useFetchList'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 // Components

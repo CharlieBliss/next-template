@@ -13,7 +13,7 @@ import { useIsFetching } from 'react-query'
 
 import ListItem from '@material-ui/core/ListItem'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
-import useFetchRecord from 'api/useFetchRecord'
+import useFetchRecord from 'logic/api/useFetchRecord'
 import H5 from 'components/typography/H5'
 import Body20 from 'components/typography/Body20'
 import Body30 from 'components/typography/Body30'

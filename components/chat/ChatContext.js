@@ -27,8 +27,8 @@ import assocPath from 'ramda/src/assocPath'
 // import { profileRecordType } from '@/client/logic/api2/recordTypes'
 
 // import bulkAddRecords from '@/client/logic/api/thunks/bulkAddRecords'
-import useFetchRecord from 'api/useFetchRecord'
-import apiRequest from 'api/apiRequest'
+import useFetchRecord from 'logic/api/useFetchRecord'
+import apiRequest from 'logic/api/apiRequest'
 // import segmentSentMessage from '@/client/logic/segment/events/segmentSentMessage'
 // import segmentRecievedMessage from '@/client/logic/segment/events/segmentRecievedMessage'
 

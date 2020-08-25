@@ -3,7 +3,7 @@ import times from 'ramda/src/times'
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import { ternary, indexedMap } from 'util/ramdaPlus'
-import useFetchList from 'api/useFetchList'
+import useFetchList from 'logic/api/useFetchList'
 
 // Components
 import LinkedPageSection from 'components/base/LinkedPageSection'

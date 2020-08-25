@@ -1,9 +1,9 @@
 import { useMutation, queryCache } from 'react-query'
-import apiRequest from 'api/apiRequest'
+import apiRequest from 'logic/api/apiRequest'
 
 export default (onSuccess) => useMutation(
 	({ queryKey, payload, method = "POST", queryParams, activeProfileId }) => {
-		apiRequest({path: queryKey, method, queryParams, payload, activeProfileId  })()
+		apiRequest({path: queryKey, method, queryParams, payload, activeProfileId })()
 	},
 	{
 		onSuccess: (data) => {

@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
 import { useQuery, queryCache } from 'react-query'
-import fetchRemoteImage from 'api/fetchRemoteImage'
+import fetchRemoteImage from 'logic/api/fetchRemoteImage'
 
 const styles = css`
 	height: 100%;

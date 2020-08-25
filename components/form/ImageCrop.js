@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton'
 
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
-import cropImage from 'form/cropImage'
+import cropImage from 'logic/form/cropImage'
 import Body30 from 'components/typography/Body30'
 import Remove from '@material-ui/icons/Remove'
 import Add from '@material-ui/icons/Add'

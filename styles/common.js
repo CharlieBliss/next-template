@@ -1,13 +1,15 @@
-export const flexContainerStyles = {
-	display: 'flex',
-	boxSizing: 'border-box',
-	width: '100%',
-	flexDirection: 'row',
-}
+import { css } from '@emotion/core'
 
-export const truncateStyles = {
-	overflow: 'hidden',
-	textOverflow: 'ellipsis',
-	whiteSpace: 'nowrap',
-	width: '100%',
-}
+export const flexContainerStyles = css`
+	display: flex;
+	box-sizing: border-box;
+	width: 100%;
+	flex-direction: row;
+`
+
+export const truncateStyles = css`
+	overflow: hidden;
+	text-overflow: ellipsis;
+	whiteSpace: nowrap;
+	width: 100%;
+`

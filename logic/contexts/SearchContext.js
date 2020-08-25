@@ -6,7 +6,7 @@ export const SearchContextProvider = ({ children }) => {
 	const [searchTerm, setSearchTerm] = useState()
 	const [uncommittedSearchTerm, setUncommittedSearchTerm] = useState('')
 	const [searchSuggestOpen, setSearchSuggestOpen] = useState(false)
-	const [searchOpen, setSearchOpen] = useState(false)
+	const [searchOpen, setSearchOpen] = useState(true)
 	const context = {
 		searchTerm,
 		setSearchTerm,

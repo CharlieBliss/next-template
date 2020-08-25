@@ -4,11 +4,11 @@ import path from 'ramda/src/path'
 import { jsx, css } from '@emotion/core'
 import Link from 'next/Link'
 import { AuthContext } from 'pages/_app'
-import useFetchList from 'api/useFetchList'
+import useFetchList from 'logic/api/useFetchList'
 import H4 from 'components/typography/H4'
 import Body30 from 'components/typography/Body30'
 
-import apiRequest from 'api/apiRequest'
+import apiRequest from 'logic/api/apiRequest'
 import { truncateStyles } from 'styles/common'
 import { useFeedContext } from 'components/activityFeed/FeedContext'
 

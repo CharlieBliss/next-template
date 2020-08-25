@@ -1,14 +1,15 @@
 import { useQuery, queryCache } from 'react-query'
-import apiRequest from 'api/apiRequest'
+import apiRequest from 'logic/api/apiRequest'
 
 export default ({
 	queryKey,
 	queryParams,
 	enabled,
-	dnsOverride
+	dnsOverride,
 }) => {
-
-	const { data = {}, status, error, isLoading } = useQuery(
+	const {
+		data = {}, status, error, isLoading
+	} = useQuery(
 		[queryKey, { queryParams }],
 		() => apiRequest({ path: queryKey, queryParams, dnsOverride }),
 		{

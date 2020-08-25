@@ -1,6 +1,7 @@
 export const streamFeedId = process.env.NEXT_PUBLIC_STREAM_FEED_ID
 export const streamKey = process.env.NEXT_PUBLIC_STREAM_KEY
 export const publicAssetBucket = process.env.NEXT_PUBLIC_AWS_PUBLIC_ASSET
+export const searchDomain = process.env.NEXT_PUBLIC_SEARCH_DOMAIN
 
 // module.exports = Object.assign(
 // 	{

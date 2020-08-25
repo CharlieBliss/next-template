@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/core'
 import Link from 'next/Link'
 import { AuthContext } from 'pages/_app'
 import { useChatContext } from 'components/chat/ChatContext'
-import SearchBar from 'components/search/SearchBar'
+import SearchBar from 'components/search/SearchBar/SearchBar'
 
 const navBarStyles = ({ colors }) => css`
 	width: 100%;

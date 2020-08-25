@@ -1,104 +1,34 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { useTheme } from 'emotion-theming'
 
 import Link from 'components/base/Link'
 import RemoteImage from 'components/base/RemoteImage'
 import { truncateStyles, flexContainerStyles } from 'styles/common'
-
-const useStyles = ({ opacity, colors, typography }) => ({
-	wrapper: {
-		...truncateStyles,
-	},
-	avatar: {
-		height: 36,
-		width: 36,
-		marginRight: 8,
-	},
-	reverseAvatar: {
-		marginRight: 0,
-		marginLeft: 8,
-	},
-	link: {
-		'&:hover': {
-			// opacity: opacity.primaryHover,
-			textDecoration: 'underline',
-		},
-	},
-	text: {
-		...truncateStyles,
-	},
-	subtitle: {
-		color: colors.text,
-		// opacity: opacity.tertiaryDefault,
-	},
-	blackText: {
-		color: colors.black,
-	},
-	overflowHidden: {
-		overflow: 'hidden',
-		width: '85%',
-	},
-	textArea: {
-		...flexContainerStyles,
-		overflow: 'hidden',
-		flexWrap: 'nowrap',
-		flexDirection: 'column',
-	},
-	reverseTextArea: {
-		alignItems: 'flex-end',
-	},
-	titleWrapper: {
-		maxWidth: 'fit-content',
-		width: '100%',
-	},
-	titleClickable: {
-		width: '100%',
-	},
-	endAlign: {
-		overflow: 'hidden',
-		textAlign: 'end',
-	},
-	passport: {
-		...flexContainerStyles,
-		flexWrap: 'nowrap',
-		alignItems: 'center',
-	},
-	passportReverse: {
-		flexDirection: 'row-reverse',
-	},
-})
-
-const imageStyle = css`
-	height: 50px;
-	width: 50px;
-	border-radius: 50%;
-`
+import Body30 from 'components/typography/Body30'
+import * as classes from './styles'
 
 const Title = ({ title, titleLink, noHover, truncate, blackText }) => {
-	const theme = useTheme()
-	const classes = useStyles(theme)
 	if (titleLink) {
 		return (
 			// <Link
 			// 	href={titleLink}
-			// 	className={classes.titleClickable}
+			// 	css={classes.titleClickable}
 			// 	noHover={noHover}
 			// >
-				<div
+				<Body30
 					css={[
-							truncate && classes.text,
-							titleLink && classes.link,
-							blackText && classes.blackText,
+						truncate && classes.text,
+						titleLink && classes.link,
+						blackText && classes.blackText,
 					]}
 				>
 					{title}
-				</div>
-			// {/* </Link> */}
+				</Body30>
+			// </Link>
 		)
 	}
 	return (
-		<div
+		<Body30
 			css={[
 				truncate && classes.text,
 				titleLink && classes.link,
@@ -106,7 +36,7 @@ const Title = ({ title, titleLink, noHover, truncate, blackText }) => {
 			]}
 		>
 			{title}
-		</div>
+		</Body30>
 	)
 }
 
@@ -116,8 +46,6 @@ export const Passport = ({
 	avatarBadge, imageBorder, avatarClassName, recordId,
 	noHover, loading, disabled, reverse, subtitleTo,
 }) => {
-	const theme = useTheme()
-	const classes = useStyles(theme)
 	return (
 		<div
 			css={[
@@ -126,7 +54,7 @@ export const Passport = ({
 				truncate && classes.wrapper,
 			]}
 		>
-			<div css={imageStyle}>
+			<div css={classes.imageStyle}>
 				<RemoteImage
 					src={src}
 					imageSize={50}
@@ -137,8 +65,8 @@ export const Passport = ({
 					rounded
 					withBorder={imageBorder}
 					imageCss={[
-						imageStyle,
-						// reverse ? classes.reverseAvatar : {},
+						classes.imageStyle,
+						reverse ? classes.reverseAvatar : {},
 						// avatarClassName,
 					]}
 					loading={loading}
@@ -171,9 +99,9 @@ export const Passport = ({
 					href={subtitleTo}
 					className={clsx(classes.text, classes.subtitle)}
 				> */}
-					<div css={blackText}>
-						{subtitle}
-					</div>
+				<Body30>
+					{subtitle}
+				</Body30>
 				{/* </Link> */}
 			</div>
 		</div>

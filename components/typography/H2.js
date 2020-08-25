@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
-const fontStyles = ({ palette }) => css`
-	color: ${palette.text.primary}
+
+const fontStyles = ({ colors }) => css`
+	color: ${colors.text}
 	font-size: 24px;
 	font-weight: normal;
 	label: H2;

@@ -1,4 +1,4 @@
-import { imageFromDataUrl } from 'form/validateImage'
+import { imageFromDataUrl } from 'logic/form/validateImage'
 
 
 const getRadianAngle = degreeValue => (

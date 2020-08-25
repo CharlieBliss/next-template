@@ -1,4 +1,4 @@
-import getSignedUrl from 'auth/awsAmplify'
+import getSignedUrl from 'logic/auth/awsAmplify'
 // import bucketAndKeyFromUrl from '@/client/util/bucketAndKeyFromUrl'
 // import { getMethodType } from '@/client/descriptions/endpoints/lenses'
 

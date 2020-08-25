@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { login } from 'auth/awsAmplify'
+import { login } from 'logic/auth/awsAmplify'
 import { Form, Field } from 'react-final-form'
 import { AuthContext } from 'pages/_app'
 

@@ -7,8 +7,8 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import Link from 'next/Link'
 import Body30 from 'components/typography/Body30'
 import InfiniteList from 'components/base/InfiniteList'
-import useFetchRecord from 'api/useFetchRecord'
-import useFetchInfiniteList from 'api/useFetchInfiniteList'
+import useFetchRecord from 'logic/api/useFetchRecord'
+import useFetchInfiniteList from 'logic/api/useFetchInfiniteList'
 
 const TrackListItem = ({ record, style }) => {
 	if (record) {

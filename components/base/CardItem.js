@@ -9,6 +9,7 @@ import { orNull } from 'util/ramdaPlus'
 import Link from 'components/base/Link'
 import Passport from 'components/base/Passport'
 import { useTheme } from 'emotion-theming'
+import Body30 from 'components/typography/Body30'
 
 // import { smImageSize } from '@/client/constants/imageSizes'
 // import { primaryHover } from '@/client/web/styles/opacity'
@@ -40,7 +41,7 @@ const styles = ({
 		alignItems: 'center',
 		height: 120,
 		padding: [0, 16],
-		pwidth: '100%',
+		width: '100%',
 		label: 'card-display',
 		// [breakpoints.only('xs')]: {
 		// 	height: 256,
@@ -240,7 +241,9 @@ export const CardItem = ({
 							href={titleTo}
 							// css={classes.titleClickable}
 						>
-							{title}
+							<Body30>
+								{title}
+							</Body30>
 						</Link>
 						{subtitle}
 						{/* <CommunityChips

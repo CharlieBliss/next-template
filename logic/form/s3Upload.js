@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Storage } from 'aws-amplify'
-import { getIdentityId } from 'auth/awsAmplify'
+import { getIdentityId } from 'logic/auth/awsAmplify'
 
 const publicAssetBucketName = process.env.NEXT_PUBLIC_AWS_PUBLIC_ASSET
 const rawAudioBucketName = process.env.NEXT_PUBLIC_AWS_RAW_AUDIO

@@ -40,7 +40,7 @@
     "react-easy-crop": "^3.1.1",
     "react-final-form": "^6.5.0",
     "react-jss": "^10.2.0",
-    "react-query": "^1.5.5",
+    "react-query": "^2.10.0",
     "react-query-devtools": "^2.3.0",
     "react-slick": "^0.26.1",
     "react-virtualized-auto-sizer": "^1.0.2",

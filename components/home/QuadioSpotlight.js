@@ -9,7 +9,7 @@ import Link from 'components/base/Link'
 
 import Carousel, { emblaSlide } from 'components/base/Carousel'
 import LinkedPageSection from 'components/base/LinkedPageSection'
-import useFetchList from 'api/useFetchList'
+import useFetchList from 'logic/api/useFetchList'
 
 const spotlightStyles = ({ breakpoints }) => ({
 	width: 540,
@@ -57,7 +57,7 @@ export const QuadioSpotlight = ({ section }) => {
 
 	const carouselAssets = map(
 		(asset) => {
-			const { position, link_to: linkTo } = asset
+			const { link_to: linkTo } = asset
 			return (
 				// <Link
 				// 	key={`${linkTo}-${position}`}

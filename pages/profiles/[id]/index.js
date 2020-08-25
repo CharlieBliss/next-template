@@ -4,8 +4,8 @@ import Head from 'next/head'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Link from 'next/Link'
 import Body30 from 'components/typography/Body30'
-import useFetchRecord from 'api/useFetchRecord'
-import useFetchList from 'api/useFetchList'
+import useFetchRecord from 'logic/api/useFetchRecord'
+import useFetchList from 'logic/api/useFetchList'
 
 const Playlists = ({ playlists = [], playlistLoading }) => {
 	if(playlistLoading) {

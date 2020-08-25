@@ -2,7 +2,7 @@
 import { css, jsx } from '@emotion/core'
 
 const fontStyles = ({ colors }) => css`
-	color: ${colors.text}
+	color: ${colors.text};
 	font-size: 14px;
 	font-weight: normal;
 `

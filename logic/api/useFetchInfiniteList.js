@@ -1,6 +1,6 @@
 import { useInfiniteQuery, queryCache } from 'react-query'
 import { useState } from 'react'
-import apiRequest from 'api/apiRequest'
+import apiRequest from 'logic/api/apiRequest'
 import flatten from 'ramda/src/flatten'
 
 export default (queryKey, queryParams = {}, dnsOverride, shouldFetch = true) => {

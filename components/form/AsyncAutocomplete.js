@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import debounce from 'lodash/debounce'
 import omit from 'ramda/src/omit'
-import apiRequest from 'api/apiRequest'
+import apiRequest from 'logic/api/apiRequest'
 import TextField from '@material-ui/core/TextField'
 
 const getOptions = async (setOptions, setLoading, path, queryParams = {}) => {
@@ -23,14 +23,13 @@ const debouncedSearch = debounce(
 			queryParams: {
 				q: query,
 				sort: 'relevance',
-				...queryParams
+				...queryParams,
 			},
 		})
 		setOptions(res.results)
 		setLoading(false)
-	}, 500
+	}, 500,
 )
-
 
 export const AsyncAutoComplete = ({
 	setTempFilters,

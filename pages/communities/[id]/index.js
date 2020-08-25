@@ -1,6 +1,6 @@
 import { useQuery, queryCache } from 'react-query'
 import { useRouter } from 'next/router'
-import useFetchRecord from 'api/useFetchRecord'
+import useFetchRecord from 'logic/api/useFetchRecord'
 
 export default function Home() {
 	const router = useRouter()

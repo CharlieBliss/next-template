@@ -9,6 +9,29 @@ export const theme = {
 		text: 'white',
 		black: 'black',
 	},
+	zIndex: {
+		appBar: 10000,
+	},
+	opacity: {
+		primaryActive: 1,
+		inputActive: '.98',
+		secondaryHover: '.95',
+		primaryHover: '.80',
+		inputHover: '.78',
+		secondaryDefault: '.75',
+		tertiaryHover: '.70',
+		primaryInactive: '.60',
+		inputDefault: '.58',
+		tertiaryDefault: '.50',
+		iconButtonInactive: '.40',
+		inputPlaceholder: '.38',
+		progressBarInactive: '.30',
+		primaryDisabled: '.20',
+		secondaryDisabled: '.20',
+		tertiaryDisabled: '.20',
+		inputDisabled: '.20',
+		buttonHover: '.10',
+	}
 }
 
 export default createMuiTheme({

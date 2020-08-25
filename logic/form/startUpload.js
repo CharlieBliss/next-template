@@ -2,7 +2,7 @@ import head from 'ramda/src/head'
 import splitAt from 'ramda/src/splitAt'
 import concat from 'ramda/src/concat'
 import lastIndexOf from 'ramda/src/lastIndexOf'
-import s3Upload from 'form/s3Upload'
+import s3Upload from 'logic/form/s3Upload'
 
 // import { UPLOAD_STARTED_NOTIFICATION_ID } from '@/client/descriptions/notifications/notificationIds'
 

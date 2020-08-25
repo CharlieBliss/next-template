@@ -2,14 +2,14 @@ import dayjs from 'dayjs'
 import CardItem from 'components/base/CardItem'
 
 export const TrackCard = ({
-	item = {}, className, emptyListCardText, showPassport, loading, filterStoreKey,
+	record = {}, className, emptyListCardText, showPassport, loading, filterStoreKey,
 	index, search, onClick,
 }) => {
 	const {
 		title, wip, listener_id: passportRecordId,
 		listener_name: passportTitle, listener_image_uuid: passportSrc, played,
 		liked, campaigns, id, image_uuid: imageUuid,
-	} = item
+	} = record
 	const passportSubtitle = dayjs(played).fromNow()
 	const detailRoute = `/tracks/${id}`
 	const passportTo = `/profiles/${passportRecordId}`

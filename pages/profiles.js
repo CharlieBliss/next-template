@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { jsx } from '@emotion/core'
 
 import { useQuery, queryCache } from 'react-query'
-import useFetchList from 'api/useFetchList'
+import useFetchList from 'logic/api/useFetchList'
 import Link from 'next/Link'
 import { AuthContext } from 'pages/_app'
 

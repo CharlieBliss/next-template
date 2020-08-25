@@ -1,5 +1,5 @@
 import Amplify, { Auth, Storage } from 'aws-amplify'
-import initApp from 'auth/initApp'
+import initApp from 'logic/auth/initApp'
 
 const region = 'us-east-1'
 const userPoolId = process.env.NEXT_PUBLIC_AWS_USER_POOL

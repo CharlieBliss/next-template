@@ -2,8 +2,8 @@ import React, { useEffect, useCallback, useState } from 'react'
 
 import { useField } from 'react-final-form'
 // import validateMimeType from '@/client/logic/finalForm/validateMimeType'
-import getFilesFromChangeEvent from 'form/getFilesFromChangeEvent'
-import startUpload from 'form/startUpload'
+import getFilesFromChangeEvent from 'logic/form/getFilesFromChangeEvent'
+import startUpload from 'logic/form/startUpload'
 
 const UploadField = ({
 	fieldKey, helpText, validFormats, multiple = false,

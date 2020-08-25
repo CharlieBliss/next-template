@@ -12,7 +12,7 @@ import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import IconButton from '@material-ui/core/IconButton'
 
-import utilApiRequest from 'api/apiRequest'
+import utilApiRequest from 'logic/api/apiRequest'
 // @TODO: deprecate getFollowing
 import { useChatContext } from 'components/chat/ChatContext'
 
@@ -23,7 +23,7 @@ import Body10 from 'components/typography/Body10'
 
 // import typography from '@/client/themes/typography'
 // import { common } from '@/client/themes/colors'
-import useFetchList from 'api/useFetchList'
+import useFetchList from 'logic/api/useFetchList'
 
 // const useStyles = makeStyles(theme => ({
 // 	modalHeader: {

@@ -1,5 +1,5 @@
 import { useQuery, queryCache } from 'react-query'
-import apiRequest from 'api/apiRequest'
+import apiRequest from 'logic/api/apiRequest'
 
 export default ({
 	queryKey,
