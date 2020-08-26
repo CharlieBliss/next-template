@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import { useRouter } from 'next/router'
@@ -15,6 +15,7 @@ export default ({ options, defaultOption, onChange }) => {
 		onChange(newValue)
 		setValue(newValue)
 	}
+
 	return (
 		<Tabs
 			value={value}

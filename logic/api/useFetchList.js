@@ -4,7 +4,7 @@ import apiRequest from 'logic/api/apiRequest'
 export default ({
 	queryKey,
 	queryParams,
-	enabled,
+	enabled = true,
 	dnsOverride,
 }) => {
 	const {

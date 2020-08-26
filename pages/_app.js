@@ -28,7 +28,7 @@ const App = ({ Component, pageProps }) => {
 				setAuthenticated(true)
 			}
 		},
-		[]
+		[],
 	)
 	const context = {
 		authenticated, setAuthenticated, activeProfileId, setActiveProfileId,
@@ -49,7 +49,7 @@ const App = ({ Component, pageProps }) => {
 						</SearchContextProvider>
 					</ChatContextProvider>
 				</FeedContextProvider>
-				{/* <ReactQueryDevtools initialIsOpen /> */}
+				<ReactQueryDevtools initialIsOpen />
 			</AuthContext.Provider>
 		</StylesProvider>
 	)

@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { orNull } from 'util/ramdaPlus'
 import Grid from '@material-ui/core/Grid'
 
-import Link from 'next/Link'
+import Link from 'next/link'
 
 const useStyles = makeStyles(({ breakpoints, typography, palette }) => ({
 	sectionWrapper: {

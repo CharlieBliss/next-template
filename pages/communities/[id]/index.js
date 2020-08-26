@@ -5,7 +5,10 @@ import useFetchRecord from 'logic/api/useFetchRecord'
 export default function Home() {
 	const router = useRouter()
 	const { id } = router.query
-	const { status, data, error } = useFetchRecord('communities', id)
+	const { status, data, error } = useFetchRecord({
+		queryKey: 'communities',
+		id,
+	})
 	return (
 		<>
 			<div>

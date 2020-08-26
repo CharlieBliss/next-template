@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from 'react'
 import path from 'ramda/src/path'
 import { jsx, css } from '@emotion/core'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { AuthContext } from 'pages/_app'
 import useFetchList from 'logic/api/useFetchList'
 import H4 from 'components/typography/H4'

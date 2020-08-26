@@ -57,36 +57,36 @@ export const Navigation = () => {
 				</Link>
 			</div>
 			<div>
-				<Link href="/communities">
-					<a css={navItemStyles}>
-						Communities
+				<Link href="/profiles">
+					<a href="/profiles" css={navItemStyles}>
+						Community
 					</a>
 				</Link>
 			</div>
 			<div>
 				<Link href="/create">
-					<a css={navItemStyles}>
+					<a href="/create" css={navItemStyles}>
 						Create Track
 					</a>
 				</Link>
 			</div>
 			<div>
-				<div
-					onClick={() => {
-						setChatDrawerOpen(drawer => {
-							if(drawer === 'chat') {
-								return 'notifications'
-							}
-							if (drawer === 'notifications') {
-								return false
-							}
-							return 'chat'
-						})
-					}}
-					css={navItemStyles}
-				>
-					Chat
-				</div>
+			<div
+				onClick={() => {
+					setChatDrawerOpen(drawer => {
+						if(drawer === 'chat') {
+							return 'notifications'
+						}
+						if (drawer === 'notifications') {
+							return false
+						}
+						return 'chat'
+					})
+				}}
+				css={navItemStyles}
+			>
+				Chat
+			</div>
 			</div>
 		</div>
 	)

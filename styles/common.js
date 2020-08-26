@@ -10,6 +10,6 @@ export const flexContainerStyles = css`
 export const truncateStyles = css`
 	overflow: hidden;
 	text-overflow: ellipsis;
-	whiteSpace: nowrap;
+	white-space: nowrap;
 	width: 100%;
 `

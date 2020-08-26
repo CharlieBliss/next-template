@@ -61,7 +61,7 @@ export const NavSearchField = () => {
 
 	const handleSearch = async () => {
 		const q = uncommittedSearchTerm
-		router.push('/search/[tab]', `/search/all?q=${q}`)
+		router.push(`/search/[tab]?q=${q}`, `/search/all?q=${q}`)
 		setSearchSuggestOpen(false)
 		setSearchOpen(false)
 		setSearchTerm(q)

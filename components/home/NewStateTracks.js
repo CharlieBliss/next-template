@@ -24,19 +24,19 @@ export const NewStateTracks = () => {
 	}
 	const { data = [], isLoading } = useFetchList({ queryKey: 'tracks', queryParams })
 	const playedTracks = indexedMap(
-			(item, index) => {
-				const { id } = item
-				return (
-					<TrackCard
-						key={id}
-						index={index}
-						item={item}
-						showPassport
-					/>
-				)
-			},
-			data,
-		)
+		(item, index) => {
+			const { id } = item
+			return (
+				<TrackCard
+					key={id}
+					index={index}
+					item={item}
+					showPassport
+				/>
+			)
+		},
+		data,
+	)
 
 	return (
 		<LinkedPageSection

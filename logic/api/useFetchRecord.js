@@ -6,14 +6,16 @@ export default ({
 	id,
 	queryParams = {},
 	settings,
-}) => useQuery(
-	[queryKey, id],
-	() => apiRequest({ path: `${queryKey}/${id}` }),
-	{
-		initialData: () => queryCache.getQueryData(
-			[queryKey, queryParams],
-		)?.results?.find(data => String(data.id) === id),
-		refetchOnWindowFocus: false,
-		...settings,
-	},
-)
+}) => {
+	return useQuery(
+		[queryKey, id],
+		() => apiRequest({ path: `${queryKey}/${id}` }),
+		{
+			initialData: () => queryCache.getQueryData(
+				[queryKey, queryParams],
+			)?.results?.find(data => String(data.id) === id),
+			refetchOnWindowFocus: false,
+			...settings,
+		},
+	)
+}

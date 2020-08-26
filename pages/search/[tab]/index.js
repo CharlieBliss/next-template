@@ -15,8 +15,7 @@ export default () => {
 	const { tab } = router.query
 	const pathName = router.asPath
 	const handleChange = (newValue) => {
-		console.log(router)
-		router.push('/search/[tab]', `${newValue}?q=${router.query.q}`)
+		router.push(`/search/[tab]?q=${router.query.q}`, `${newValue}?q=${router.query.q}`)
 	}
 
 	return (

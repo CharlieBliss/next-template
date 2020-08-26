@@ -36,7 +36,7 @@ export const RemoteImage = ({
 	if (url && !imageTag) {
 		return (
 			<img
-				css={[css, ...imageCss]}
+				css={[styles, css, ...imageCss]}
 				src={url}
 				alt={alt}
 			/>
@@ -46,9 +46,7 @@ export const RemoteImage = ({
 		return (
 			<image
 				href={url}
-				width="100%"
-				height="100%"
-				css={[css, ...imageCss]}
+				css={[styles, css, ...imageCss]}
 			/>
 		)
 	}

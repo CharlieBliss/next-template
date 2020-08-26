@@ -1,27 +1,30 @@
 import { useRouter } from 'next/router'
+import NextLink from 'next/link'
+import { css } from '@emotion/core'
 
-function ActiveLink({ children, href, onClick = () => {} }) {
-  const router = useRouter()
-  const style = {
-    marginRight: 10,
-    color: router.pathname === href ? 'red' : 'black',
-  }
 
-  const handleClick = (e) => {
-  e.preventDefault()
-  if(onClick){
-    onClick()
-  }
-  if(href){
-    router.push(href)
-  }
-  }
+const linkStyles = css`
+	text-decoration: none;
+	cursor: pointer;
+`
 
-  return (
-    <a href={href} onClick={handleClick} style={style}>
-      {children}
-    </a>
-  )
+export const Link = ({ children, href, onClick = () => {} }) => {
+	// const router = useRouter()
+
+	const handleClick = (e) => {
+		e.preventDefault()
+		if (onClick) {
+			onClick()
+		}
+	}
+
+	return (
+		<NextLink href={href}>
+			<a onClick={handleClick} css={linkStyles}>
+				{children}
+			</a>
+		</NextLink>
+	)
 }
 
-export default ActiveLink
+export default Link

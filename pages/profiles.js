@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core'
 
 import { useQuery, queryCache } from 'react-query'
 import useFetchList from 'logic/api/useFetchList'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { AuthContext } from 'pages/_app'
 
 

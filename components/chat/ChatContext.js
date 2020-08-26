@@ -147,7 +147,10 @@ const undefinedChatContext = {}
 const ChatContext = React.createContext(undefinedChatContext)
 export const ChatContextProvider = ({ children }) => {
 	// START - CONTEXT STATE - START
-	const { data = {}, isLoading } = useFetchRecord('profiles', 112)
+	const { data = {}, isLoading } = useFetchRecord({
+		queryKey: 'profiles',
+		id: 112,
+	})
 
 	const [chatDrawerOpen, setChatDrawerOpen] = useState(false)
 	const [chatDrawerTab, setChatDrawerTab] = useState('notification')

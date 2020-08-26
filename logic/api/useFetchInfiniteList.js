@@ -3,35 +3,49 @@ import { useState } from 'react'
 import apiRequest from 'logic/api/apiRequest'
 import flatten from 'ramda/src/flatten'
 
-export default (queryKey, queryParams = {}, dnsOverride, shouldFetch = true) => {
+export default ({
+	recordType,
+	path,
+	queryParams = {},
+	dnsOverride,
+	settings,
+}) => {
 	const [total, setTotal] = useState(0)
 	const apiFetchMore = async (key, qp, nextId = 1) => {
 		const params = {
 			...queryParams,
 			page: nextId,
 		}
-		if (!shouldFetch) {
-			return []
-		}
-		const data = await apiRequest({ path: queryKey, queryParams: params, dnsOverride })()
+		const data = await apiRequest({
+			path,
+			queryParams: params,
+			dnsOverride,
+		})
 		setTotal(data.total)
 		return data.results
 	}
 	const {
 		status,
-		data,
+		data = [],
 		error,
 		isFetching,
 		isFetchingMore,
 		fetchMore,
 		canFetchMore,
-		} = useInfiniteQuery(
-			[queryKey, queryParams],
-			apiFetchMore,
-			{
-				getFetchMore: (lastResults, allResults) => allResults.length + 1
-			}
-		)
+		query,
+	} = useInfiniteQuery(
+		[recordType, {
+			path,
+			...queryParams,
+		}],
+		apiFetchMore,
+		{
+			getFetchMore: (lastResults, allResults) => allResults.length + 1,
+			...settings,
+		},
+	)
+	console.log(data)
+
 	return {
 		data: flatten(data),
 		isFetching,
@@ -41,5 +55,7 @@ export default (queryKey, queryParams = {}, dnsOverride, shouldFetch = true) => 
 		status,
 		error,
 		total,
+		infinite: true,
+		queryKey: query.queryKey,
 	}
 }

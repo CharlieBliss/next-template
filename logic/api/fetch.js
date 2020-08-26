@@ -12,5 +12,9 @@ export default async ({
 			headers,
 		},
 	)
-	return response.json()
+	const text = await response.text()
+	// Certain api responses (track/{id}/like and profile{id}/follow)
+	// respond with no body
+	const res = text.length ? JSON.parse(text) : {}
+	return res
 }

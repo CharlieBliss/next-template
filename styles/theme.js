@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core"
+import { createMuiTheme } from '@material-ui/core'
 
 export const theme = {
 	colors: {
@@ -8,6 +8,7 @@ export const theme = {
 		base40: '#121317',
 		text: 'white',
 		black: 'black',
+		white: '#FFFFFF',
 	},
 	zIndex: {
 		appBar: 10000,
@@ -31,7 +32,7 @@ export const theme = {
 		tertiaryDisabled: '.20',
 		inputDisabled: '.20',
 		buttonHover: '.10',
-	}
+	},
 }
 
 export default createMuiTheme({
@@ -54,5 +55,5 @@ export default createMuiTheme({
 			hint: 'rgba(255, 255, 255, 0.5)',
 			icon: 'rgba(255, 255, 255, 0.5)',
 		},
-	}
+	},
 })

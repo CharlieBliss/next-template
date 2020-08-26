@@ -113,8 +113,11 @@ export default ({ channel, style }) => {
 		omit([506], channel.data.userProfilesObj),
 	)[0][1]
 	const enabled = !useIsFetching()
-	// const { data = {} } = useFetchRecord('profiles-chat', themProfileId, {}, { enabled })
-	const data = {}
+	const { data = {} } = useFetchRecord({
+		queryKey: 'profiles-chat',
+		id: themProfileId,
+		settings: { enabled },
+	})
 	const { image_uuid: imageUuid, name } = data
 	const hasUnreadMessages = channel.disconnected ? false : channel.countUnread()
 	const classes = useStyles()

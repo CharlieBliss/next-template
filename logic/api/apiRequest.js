@@ -4,6 +4,9 @@ import { getCurrentJwtToken } from 'logic/auth/awsAmplify'
 export default async ({
 	path, payload, method = 'GET', queryParams = {}, authenticated = true, dnsOverride,
 }) => {
+	if(!path) {
+		throw new Error()
+	}
 	let jwtToken
 	if (authenticated) {
 		jwtToken = await getCurrentJwtToken()

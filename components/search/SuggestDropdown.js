@@ -5,7 +5,7 @@ import { jsx, css } from '@emotion/core'
 /** @jsx jsx */
 import none from 'ramda/src/none'
 import IconButton from '@material-ui/core/IconButton'
-import ClickableLink from 'next/Link'
+import ClickableLink from 'next/link'
 import X from '@material-ui/icons/Close'
 import useFetchList from 'logic/api/useFetchList'
 import Body30 from 'components/typography/Body30'
